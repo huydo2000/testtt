@@ -1,87 +1,68 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-  <meta charset="UTF-8" />
-  <title>Button Trái Tim Đáng Yêu</title>
-  <style>
-    body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      background: #fff0f6;
-      margin: 0;
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Gửi Em 💖</title>
+<style>
+  html, body {
+    margin: 0; padding: 0;
+    height: 100%;
+    background: linear-gradient(135deg, #ff5c8d, #ff3366);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    overflow: hidden;
+    color: white;
+  }
+  .container {
+    text-align: center;
+    max-width: 90vw;
+  }
+  svg {
+    width: 150px;
+    height: 150px;
+    animation: beat 1.2s infinite ease-in-out;
+    filter: drop-shadow(0 0 10px rgba(255, 0, 75, 0.7));
+  }
+  @keyframes beat {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.15); }
+  }
+  .message {
+    margin-top: 30px;
+    font-size: 1.4rem;
+    line-height: 1.5;
+    text-shadow: 0 0 6px rgba(255, 0, 75, 0.8);
+  }
+  @media (max-width: 480px) {
+    svg {
+      width: 120px;
+      height: 120px;
     }
-
-    button {
-      background: #ff5c8d;
-      border: none;
-      color: white;
-      padding: 15px 30px;
-      font-size: 1.2rem;
-      border-radius: 30px;
-      cursor: pointer;
-      box-shadow: 0 5px 15px rgba(255, 92, 141, 0.4);
-      transition: background 0.3s ease;
+    .message {
+      font-size: 1.1rem;
     }
-    button:hover {
-      background: #ff3366;
-    }
-
-    /* Trái tim to hiện lên */
-    #heartPopup {
-      position: fixed;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%) scale(0);
-      width: 300px;
-      height: 300px;
-      background: red;
-      clip-path: polygon(
-        50% 0%, 61% 12%, 75% 12%, 85% 22%, 85% 37%,
-        85% 50%, 75% 65%, 50% 90%, 25% 65%, 15% 50%,
-        15% 37%, 15% 22%, 25% 12%, 39% 12%
-      );
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      color: white;
-      font-size: 2rem;
-      font-weight: bold;
-      text-align: center;
-      user-select: none;
-      box-shadow: 0 0 30px rgba(255, 0, 50, 0.7);
-      transition: transform 0.5s ease;
-      z-index: 9999;
-      pointer-events: none;
-    }
-
-    #heartPopup.show {
-      transform: translate(-50%, -50%) scale(1);
-      pointer-events: auto;
-    }
-  </style>
+  }
+</style>
 </head>
 <body>
+  <div class="container">
+    <!-- SVG trái tim đẹp -->
+    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Heart">
+      <path fill="#ff2d55" stroke="#ff597c" stroke-width="1.5"
+        d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42
+           4.42 3 7.5 3c1.74 0 3.41 0.81 4.5 2.09C13.09 3.81
+           14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4
+           6.86-8.55 11.54L12 21.35z" />
+    </svg>
 
-  <button id="loveBtn">Ấn vào đây</button>
-
-  <div id="heartPopup">Loan Xinh Đẹp</div>
-
-  <script>
-    const btn = document.getElementById('loveBtn');
-    const heart = document.getElementById('heartPopup');
-
-    btn.addEventListener('click', () => {
-      heart.classList.add('show');
-
-      // 3 giây sau ẩn trái tim
-      setTimeout(() => {
-        heart.classList.remove('show');
-      }, 3000);
-    });
-  </script>
-
+    <div class="message">
+      Gửi tặng người đặc biệt nhất 💌<br />
+      Anh yêu em nhiều lắm 💖<br />
+      Cảm ơn vì đã ở bên anh 😘
+    </div>
+  </div>
 </body>
 </html>
