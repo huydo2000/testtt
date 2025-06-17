@@ -1,80 +1,87 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-    <meta charset="UTF-8">
-    <title>Gửi Em 💖</title>
-    <style>
-        html, body {
-            margin: 0;
-            padding: 0;
-            background: #0d0d0d;
-            height: 100%;
-            overflow: hidden;
-            font-family: 'Segoe UI', sans-serif;
-        }
+  <meta charset="UTF-8" />
+  <title>Button Trái Tim Đáng Yêu</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background: #fff0f6;
+      margin: 0;
+    }
 
-        .container {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            text-align: center;
-        }
+    button {
+      background: #ff5c8d;
+      border: none;
+      color: white;
+      padding: 15px 30px;
+      font-size: 1.2rem;
+      border-radius: 30px;
+      cursor: pointer;
+      box-shadow: 0 5px 15px rgba(255, 92, 141, 0.4);
+      transition: background 0.3s ease;
+    }
+    button:hover {
+      background: #ff3366;
+    }
 
-        .heart {
-            position: relative;
-            width: 100px;
-            height: 90px;
-            animation: beat 1s infinite;
-        }
+    /* Trái tim to hiện lên */
+    #heartPopup {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%) scale(0);
+      width: 300px;
+      height: 300px;
+      background: red;
+      clip-path: polygon(
+        50% 0%, 61% 12%, 75% 12%, 85% 22%, 85% 37%,
+        85% 50%, 75% 65%, 50% 90%, 25% 65%, 15% 50%,
+        15% 37%, 15% 22%, 25% 12%, 39% 12%
+      );
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: white;
+      font-size: 2rem;
+      font-weight: bold;
+      text-align: center;
+      user-select: none;
+      box-shadow: 0 0 30px rgba(255, 0, 50, 0.7);
+      transition: transform 0.5s ease;
+      z-index: 9999;
+      pointer-events: none;
+    }
 
-        .heart::before,
-        .heart::after {
-            content: "";
-            position: absolute;
-            width: 100px;
-            height: 90px;
-            background: #ff4d6d;
-            border-radius: 50px 50px 0 0;
-            transform: rotate(-45deg);
-            transform-origin: 0 100%;
-        }
-
-        .heart::after {
-            left: 100px;
-            transform: rotate(45deg);
-            transform-origin: 100% 100%;
-        }
-
-        @keyframes beat {
-            0%, 100% {
-                transform: scale(1);
-            }
-            50% {
-                transform: scale(1.2);
-            }
-        }
-
-        .message {
-            margin-top: 40px;
-            font-size: 22px;
-            line-height: 1.6;
-            color: #ffccd5;
-        }
-    </style>
+    #heartPopup.show {
+      transform: translate(-50%, -50%) scale(1);
+      pointer-events: auto;
+    }
+  </style>
 </head>
 <body>
-    <div class="container">
-        <div class="heart"></div>
-        <div class="message">
-            Gửi tặng người đặc biệt nhất 💌<br>
-            Anh yêu em nhiều lắm 💖<br>
-            Cảm ơn vì đã ở bên anh 😘
-        </div>
-    </div>
+
+  <button id="loveBtn">Ấn vào đây</button>
+
+  <div id="heartPopup">Loan Xinh Đẹp</div>
+
+  <script>
+    const btn = document.getElementById('loveBtn');
+    const heart = document.getElementById('heartPopup');
+
+    btn.addEventListener('click', () => {
+      heart.classList.add('show');
+
+      // 3 giây sau ẩn trái tim
+      setTimeout(() => {
+        heart.classList.remove('show');
+      }, 3000);
+    });
+  </script>
+
 </body>
 </html>
